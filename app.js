@@ -35,7 +35,7 @@ const item3 = new itemsModel(
     {
         name : "Chocolate Day"
     }
-)
+) 
 
 const newItemsSchema = new mongoose.Schema(
     {
@@ -80,7 +80,7 @@ app.post("/", function(req, res) {
         items.save();
         console.log("New Item Saved in Default Database " + items);
         res.redirect("/");
-    } else {
+    } else { 
         newItemsModel.findOne({name : list}, function(err, foundList) {
             if(!err) { 
                 foundList.newItemList.push(items);
