@@ -4,7 +4,8 @@
   "description": "",
   "main": "app.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "devStart": "nodemon app.js"
   },
   "keywords": [],
   "author": "",
@@ -19,5 +20,8 @@
     "lodash": "^4.17.21",
     "mongoose": "^6.3.6",
     "nodemon": "^2.0.16"
+  },
+  "devDependencies": {
+    "dotenv": "^16.0.1"
   }
 }

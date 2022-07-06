@@ -1,3 +1,7 @@
+if(process.env.NODE_ENV !== "production") {
+    require("dotenv").config();
+}
+
 const express = require("express");
 const bodyParser = require("body-parser");
 const date = require(__dirname + "/date.js");
@@ -5,7 +9,7 @@ const mongoose = require('mongoose');
 const _ = require("lodash");
 
 const app = express();
-mongoose.connect("mongodb+srv://shikhar:shikhar@cluster0.kzookdj.mongodb.net/todoListDB");
+mongoose.connect(process.env.DATABASE_URL);
 
 app.set("view engine", "ejs");
 app.use(bodyParser.urlencoded({extended: true}));
@@ -85,8 +89,8 @@ app.post("/", function(req, res) {
             if(!err) { 
                 foundList.newItemList.push(items);
                 foundList.save();
-                res.redirect("/" + list);
-            }
+            } 
+            res.redirect("/" + list);
         })
     }
 })
